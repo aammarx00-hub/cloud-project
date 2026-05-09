@@ -1,26 +1,195 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Cloud Notes App</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:Arial, sans-serif;
+background:linear-gradient(135deg,#0f172a,#1e293b);
+color:white;
+min-height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+padding:20px;
+}
+
+.container{
+background:rgba(255,255,255,0.08);
+backdrop-filter:blur(10px);
+padding:40px;
+border-radius:20px;
+width:100%;
+max-width:700px;
+text-align:center;
+box-shadow:0 0 30px rgba(0,0,0,0.4);
+}
+
+h1{
+font-size:42px;
+margin-bottom:10px;
+}
+
+.subtitle{
+color:#cbd5e1;
+margin-bottom:30px;
+font-size:18px;
+}
+
+.card{
+background:rgba(255,255,255,0.06);
+padding:20px;
+border-radius:15px;
+margin-bottom:20px;
+transition:0.3s;
+}
+
+.card:hover{
+transform:translateY(-5px);
+background:rgba(255,255,255,0.12);
+}
+
+button{
+padding:14px 25px;
+border:none;
+border-radius:12px;
+background:#38bdf8;
+color:white;
+font-size:16px;
+cursor:pointer;
+transition:0.3s;
+margin:10px;
+}
+
+button:hover{
+background:#0ea5e9;
+transform:scale(1.05);
+}
+
+#message{
+margin-top:20px;
+font-size:20px;
+color:#7dd3fc;
+font-weight:bold;
+}
+
+.counter{
+font-size:40px;
+margin-top:10px;
+color:#38bdf8;
+}
+
+.footer{
+margin-top:30px;
+font-size:14px;
+color:#94a3b8;
+}
+
+</style>
 </head>
 
-<body style="text-align:center;font-family:Arial;margin-top:100px;">
+<body>
 
-<h1>Cloud Notes Web App</h1>
+<div class="container">
 
-<p>This website is hosted using cloud computing.</p>
+<h1>☁ Cloud Notes App</h1>
+
+<p class="subtitle">
+Interactive Cloud Computing Demo
+</p>
+
+<div class="card">
+<h2>About Project</h2>
+
+<p style="margin-top:10px;">
+This web application is hosted using cloud computing
+technology with a simple interactive interface.
+</p>
+</div>
+
+<div class="card">
+<h2>Interactive Features</h2>
 
 <button onclick="showMessage()">
-Click Me
+Show Cloud Status
 </button>
 
-<p id="msg"></p>
+<button onclick="changeBackground()">
+Change Theme
+</button>
+
+<button onclick="increaseCounter()">
+Increase Visitors
+</button>
+
+<p id="message"></p>
+
+<div class="counter" id="counter">
+0
+</div>
+
+</div>
+
+<div class="footer">
+Hosted on Cloud Platform • PaaS Project
+</div>
+
+</div>
 
 <script>
+
+let count = 0;
+
 function showMessage(){
-document.getElementById("msg").innerHTML =
-"Cloud computing is working!";
+
+document.getElementById("message").innerHTML =
+"✅ Cloud Computing is Working Successfully!";
+
 }
+
+function increaseCounter(){
+
+count++;
+
+document.getElementById("counter").innerHTML =
+count;
+
+}
+
+function changeBackground(){
+
+const colors = [
+
+"linear-gradient(135deg,#0f172a,#1e293b)",
+
+"linear-gradient(135deg,#1e3a8a,#2563eb)",
+
+"linear-gradient(135deg,#14532d,#16a34a)",
+
+"linear-gradient(135deg,#581c87,#9333ea)",
+
+"linear-gradient(135deg,#7f1d1d,#ef4444)"
+
+];
+
+const randomColor =
+colors[Math.floor(Math.random()*colors.length)];
+
+document.body.style.background = randomColor;
+
+}
+
 </script>
 
 </body>
